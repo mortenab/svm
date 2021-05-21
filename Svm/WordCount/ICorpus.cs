@@ -4,9 +4,9 @@ namespace Svm.WordCount {
   /// </summary>
   public interface ICorpus {
     /// <summary>
-    /// The overall frequency in all documents.
+    /// The number of documents containing the specified word.
     /// </summary>
-    int GetFrequency( int wordId );
+    int GetDocumentFrequency( int wordId );
     
     /// <summary>
     /// The number of documents in the corpus.

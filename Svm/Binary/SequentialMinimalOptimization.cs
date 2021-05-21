@@ -25,7 +25,7 @@ namespace Svm.Binary {
       _trainingSet = trainingSet;
       _alphas = new double[_trainingSet.Length];
       _errorCache = new double[trainingSet.Length];
-      _rand = new Random();
+      _rand = new Random( 42 );
     }
 
     private int TakeStep( int i1, int i2 ) {

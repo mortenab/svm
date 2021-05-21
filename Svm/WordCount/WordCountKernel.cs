@@ -23,8 +23,10 @@ namespace Svm.WordCount {
         var bWordOcc = b.Words[j];
 
         if ( aWordOcc.WordId == bWordOcc.WordId ) {
-          var weight = Math.Log( (double) _corpus.CorpusSize / _corpus.GetFrequency( aWordOcc.WordId ) );
-          result += aWordOcc.Frequency * bWordOcc.Frequency * weight * weight;
+          var documentFrequency = _corpus.GetDocumentFrequency( aWordOcc.WordId ) + 1;
+          var inverseFrequency = Math.Log( (double) _corpus.CorpusSize / documentFrequency );
+          var weight = inverseFrequency * inverseFrequency;
+          result += aWordOcc.Frequency * bWordOcc.Frequency * weight;
           i++;
           j++;
         }
